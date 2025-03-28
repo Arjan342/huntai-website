@@ -13,12 +13,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link href="/">
-              <a className="flex items-center">
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text">
-                  HuntAI
-                </span>
-              </a>
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text">
+                HuntAI
+              </span>
             </Link>
             <p className="text-sm text-gray-400">
               Gespecialiseerd in het zoeken en aantonen van digitale kwetsbaarheden door de inzet van AI.
@@ -41,31 +39,23 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Snelle Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Home
-                  </a>
+                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link href="/diensten">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Diensten
-                  </a>
+                <Link href="/diensten" className="text-gray-400 hover:text-white transition-colors">
+                  Diensten
                 </Link>
               </li>
               <li>
-                <Link href="/nieuws">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Nieuws
-                  </a>
+                <Link href="/nieuws" className="text-gray-400 hover:text-white transition-colors">
+                  Nieuws
                 </Link>
               </li>
               <li>
-                <Link href="/over-ons">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Over Ons
-                  </a>
+                <Link href="/over-ons" className="text-gray-400 hover:text-white transition-colors">
+                  Over Ons
                 </Link>
               </li>
             </ul>
@@ -76,31 +66,23 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Diensten</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/automatische-ai-pentesten">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Automatische AI Pentesten
-                  </a>
+                <Link href="/automatische-ai-pentesten" className="text-gray-400 hover:text-white transition-colors">
+                  Automatische AI Pentesten
                 </Link>
               </li>
               <li>
-                <Link href="/kwetsbaarheidsanalyse">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Kwetsbaarheidsanalyse
-                  </a>
+                <Link href="/kwetsbaarheidsanalyse" className="text-gray-400 hover:text-white transition-colors">
+                  Kwetsbaarheidsanalyse
                 </Link>
               </li>
               <li>
-                <Link href="/diensten">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Digitale Weerbaarheid
-                  </a>
+                <Link href="/diensten" className="text-gray-400 hover:text-white transition-colors">
+                  Digitale Weerbaarheid
                 </Link>
               </li>
               <li>
-                <Link href="/diensten">
-                  <a className="text-gray-400 hover:text-white transition-colors">
-                    Security Consulting
-                  </a>
+                <Link href="/diensten" className="text-gray-400 hover:text-white transition-colors">
+                  Security Consulting
                 </Link>
               </li>
             </ul>
