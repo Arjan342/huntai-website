@@ -29,8 +29,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
         
-      - name: Build Frontend Only
-        run: npm run build
+      - name: Build Frontend and API for Azure
+        run: |
+          vite build
+          mkdir -p dist/api
+          esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist/api
         
       - name: Build And Deploy
         id: builddeploy
@@ -42,8 +45,8 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "dist/public" # Built app content directory - optional
+          api_location: "dist/api" # Api source code path - compiled output
+          output_location: "dist" # Built app content directory - optional
           skip_app_build: true # Skip the build step since we've already built the app
           production_branch: "main"
           ###### End of Repository/Build Configurations ######
