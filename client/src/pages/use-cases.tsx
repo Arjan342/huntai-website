@@ -17,7 +17,7 @@ const useCases = [
     description: 'Een toonaangevende bank versterkt haar digitale weerbaarheid en reduceert succesvolle phishing-aanvallen met 85% dankzij AI-gestuurde beveiligingsoplossingen.',
     category: 'Financiële Sector',
     results: ['85% minder phishing-aanvallen', '70% snellere detectie', '60% snellere reactietijd'],
-    image: '/placeholder-finance.jpg'
+    image: '/images/financial-institution.svg'
   },
   {
     id: 'healthcare-provider',
@@ -25,7 +25,7 @@ const useCases = [
     description: 'Een grote Nederlandse zorginstelling implementeert geavanceerde AI-beveiligingsmaatregelen om gevoelige patiëntgegevens te beschermen en te voldoen aan strikte regelgeving.',
     category: 'Gezondheidszorg',
     results: ['90% snellere detectie', '100% compliance', 'Zero downtime'],
-    image: '/placeholder-healthcare.jpg'
+    image: '/images/healthcare-provider.svg'
   },
   {
     id: 'government-agency',
@@ -33,7 +33,7 @@ const useCases = [
     description: 'Een Nederlandse overheidsinstantie gebruikt AI-pentesting en monitoring om geavanceerde aanvallen te detecteren en kritieke infrastructuur te beschermen.',
     category: 'Overheid',
     results: ['95% vermindering kwetsbaarheden', '24/7 realtime monitoring', 'Verbeterde weerbaarheid'],
-    image: '/placeholder-government.jpg'
+    image: '/images/government-agency.svg'
   },
   {
     id: 'manufacturing-company',
@@ -41,7 +41,7 @@ const useCases = [
     description: 'Een groot productiebedrijf implementeert segmentatie en AI-monitoring om de convergentie van operationele technologie (OT) en IT-netwerken veilig te faciliteren.',
     category: 'Industrie',
     results: ['80% betere zichtbaarheid', 'Geïsoleerde kritieke systemen', 'Veilige digitale transformatie'],
-    image: '/placeholder-manufacturing.jpg'
+    image: '/images/manufacturing-company.svg'
   }
 ];
 
@@ -73,6 +73,16 @@ const UseCasesPage: React.FC = () => {
             </CardHeader>
             
             <CardContent>
+              <div className="mb-4">
+                <div className="h-48 rounded-md overflow-hidden bg-gray-800 flex items-center justify-center">
+                  <img 
+                    src={useCase.image} 
+                    alt={useCase.title} 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+              
               <div className="space-y-2">
                 <h4 className="text-sm font-medium text-gray-300">Resultaten:</h4>
                 <ul className="space-y-1">

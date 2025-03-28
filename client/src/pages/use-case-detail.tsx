@@ -5,6 +5,14 @@ import { ArrowLeft } from 'lucide-react';
 // UI Components
 import { Button } from '@/components/ui/button';
 
+// Afbeeldingen bijhouden
+const useCaseImages = {
+  'financial-institution': '/images/financial-institution.svg',
+  'healthcare-provider': '/images/healthcare-provider.svg',
+  'government-agency': '/images/government-agency.svg',
+  'manufacturing-company': '/images/manufacturing-company.svg',
+};
+
 // Dummydata voor use cases
 type UseCaseData = {
   title: string;
@@ -313,6 +321,14 @@ const UseCaseDetailPage: React.FC = () => {
           <div className="text-sm text-purple-400 mb-2">{useCase.category}</div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{useCase.title}</h1>
           <p className="text-xl text-gray-300 mb-8">{useCase.subtitle}</p>
+          
+          <div className="h-80 bg-gray-800 rounded-lg flex items-center justify-center mb-8 overflow-hidden">
+            <img 
+              src={useCaseImages[useCaseId as keyof typeof useCaseImages] || '/images/financial-institution.svg'} 
+              alt={useCase.title} 
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         <div className="space-y-12">
