@@ -7,6 +7,8 @@ import Layout from "@/components/layout/Layout";
 import Home from "@/pages/home";
 import UseCasesPage from "./pages/use-cases";
 import UseCaseDetailPage from "./pages/use-case-detail";
+import NewsPage from "./pages/news";
+import NewsDetailPage from "./pages/news-detail";
 
 function Router() {
   return (
@@ -14,7 +16,8 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/diensten" component={() => <div className="py-32 text-center">Diensten Pagina</div>} />
-        <Route path="/nieuws" component={() => <div className="py-32 text-center">Nieuws Pagina</div>} />
+        <Route path="/news" component={NewsPage} />
+        <Route path="/news/:id" component={NewsDetailPage} />
         <Route path="/use-cases" component={UseCasesPage} />
         <Route path="/use-case/:id" component={UseCaseDetailPage} />
         <Route path="/over-ons" component={() => <div className="py-32 text-center">Over Ons Pagina</div>} />

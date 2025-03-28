@@ -78,7 +78,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Diensten", path: "/diensten" },
-    { name: "Nieuws", path: "/nieuws" },
+    { name: "Nieuws", path: "/news" },
     { name: "Use Cases", path: "/use-cases" },
     { name: "Over Ons", path: "/over-ons" }
   ];
@@ -96,7 +96,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
-            href="/"
+            to="/"
             className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text"
           >
             HuntAI
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
             {navLinks.map((link) => (
               <Link 
                 key={link.path} 
-                href={link.path}
+                to={link.path}
                 className={`text-gray-300 hover:text-white transition-colors ${
                   location === link.path ? "text-white" : ""
                 }`}
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <LanguageSwitcher currentLang="nl" />
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              <Link href="/contact">
+              <Link to="/contact">
                 Request Demo
               </Link>
             </Button>
@@ -149,7 +149,7 @@ const Header: React.FC = () => {
             {mobileNavLinks.map((link) => (
               <Link 
                 key={link.path} 
-                href={link.path}
+                to={link.path}
                 className={`text-gray-300 hover:text-white transition-colors py-2 ${
                   location === link.path ? "text-white" : ""
                 }`}
@@ -160,7 +160,7 @@ const Header: React.FC = () => {
             ))}
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
               <Link 
-                href="/contact" 
+                to="/contact" 
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Request Demo

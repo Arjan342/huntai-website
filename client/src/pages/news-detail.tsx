@@ -1,11 +1,12 @@
-'use client'
+import React from 'react';
+import { Link, useRoute } from 'wouter';
+import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 
-import { useParams } from 'next/navigation'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react'
+// UI Components
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
-// Dit zou normaal gesproken uit een database of API komen
+// Dummydata voor nieuwsartikelen
 const newsArticles = [
   {
     id: '1',
@@ -153,9 +154,9 @@ const newsArticles = [
   }
 ];
 
-export default function NewsArticlePage() {
-  const params = useParams();
-  const articleId = params.id;
+const NewsDetailPage: React.FC = () => {
+  const [_, params] = useRoute('/news/:id');
+  const articleId = params?.id;
   
   // Vind het artikel op basis van ID
   const article = newsArticles.find(article => article.id === articleId);
@@ -167,7 +168,7 @@ export default function NewsArticlePage() {
         <h1 className="text-4xl font-bold mb-6">Artikel niet gevonden</h1>
         <p className="text-xl text-gray-400 mb-8">Het artikel dat u zoekt bestaat niet of is verwijderd.</p>
         <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-          <Link href="/news">Terug naar nieuwsoverzicht</Link>
+          <Link to="/news">Terug naar nieuwsoverzicht</Link>
         </Button>
       </div>
     );
@@ -176,71 +177,60 @@ export default function NewsArticlePage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="mb-8">
-        <Link href="/news" className="inline-flex items-center text-blue-400 hover:text-blue-300">
+        <Link to="/news" className="inline-flex items-center text-blue-400 hover:text-blue-300">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Terug naar nieuwsoverzicht
         </Link>
       </div>
-
+      
       <article className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{article.title}</h1>
-          
-          <div className="flex flex-wrap items-center text-sm text-gray-500 mb-8">
-            <div className="flex items-center mr-6 mb-2">
+        <header className="mb-12">
+          <div className="flex items-center space-x-4 mb-4">
+            <Badge className="bg-blue-500 hover:bg-blue-600">{article.category}</Badge>
+            <div className="flex items-center text-gray-400">
               <Calendar className="h-4 w-4 mr-1" />
               <span>{article.date}</span>
             </div>
-            <div className="flex items-center mr-6 mb-2">
+            <div className="flex items-center text-gray-400">
               <User className="h-4 w-4 mr-1" />
               <span>{article.author}</span>
             </div>
-            <div className="flex items-center mb-2">
-              <Tag className="h-4 w-4 mr-1" />
-              <span>{article.category}</span>
-            </div>
           </div>
           
-          <div className="h-80 bg-gray-800 rounded-lg flex items-center justify-center mb-8">
-            <span className="text-gray-600 text-sm">[Placeholder voor afbeelding: {article.image}]</span>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{article.title}</h1>
+          <p className="text-xl text-gray-300">{article.excerpt}</p>
+        </header>
+        
+        <div className="mb-10">
+          <img 
+            src={article.image} 
+            alt={article.title}
+            className="w-full h-auto rounded-lg"
+          />
         </div>
-
+        
         <div 
           className="prose prose-lg prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
-
-        <div className="mt-16 pt-8 border-t border-gray-800">
-          <h3 className="text-2xl font-bold mb-4">Deel dit artikel</h3>
+        
+        <div className="mt-12 border-t border-gray-800 pt-8">
+          <h3 className="text-xl font-bold mb-4">Deel dit artikel</h3>
           <div className="flex space-x-4">
-            <Button variant="outline" className="border-gray-700 hover:border-blue-500">
+            <Button variant="outline" size="sm" className="text-blue-400 border-blue-400 hover:bg-blue-400/10">
               LinkedIn
             </Button>
-            <Button variant="outline" className="border-gray-700 hover:border-blue-500">
+            <Button variant="outline" size="sm" className="text-blue-400 border-blue-400 hover:bg-blue-400/10">
               Twitter
             </Button>
-            <Button variant="outline" className="border-gray-700 hover:border-blue-500">
-              E-mail
+            <Button variant="outline" size="sm" className="text-blue-400 border-blue-400 hover:bg-blue-400/10">
+              Facebook
             </Button>
           </div>
         </div>
+      </article>
+    </div>
+  );
+};
 
-        <div className="mt-16 pt-8 border-t border-gray-800">
-          <h3 className="text-2xl font-bold mb-6">Gerelateerde artikelen</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {newsArticles
-              .filter(a => a.id !== articleId)
-              .slice(0, 2)
-              .map(relatedArticle => (
-                <div key={relatedArticle.id} className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-purple-500 transition-colors">
-                  <div className="h-48 bg-gray-800 flex items-center justify-center">
-                    <span className="text-gray-600 text-sm">[Placeholder voor afbeelding]</span>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{relatedArticle.title}</h3>
-                    <p className="text-gray-400 mb-4">{relatedArticle.excerpt}</p>
-                    <Link href={`/news/${relatedArticle.id}`} className="text-purple-400 hover:text-purple-300 inline-flex items-center">
-                      Lees meer
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2<response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with `grep -n` in order to find the line numbers of what you are looking for.</NOTE>
+export default NewsDetailPage;
