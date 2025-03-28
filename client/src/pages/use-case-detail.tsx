@@ -2,8 +2,7 @@ import React from 'react';
 import { Link, useRoute, useLocation } from 'wouter';
 import { ArrowLeft } from 'lucide-react';
 
-// Layout
-import Layout from '@/components/layout/Layout';
+// UI Components
 import { Button } from '@/components/ui/button';
 
 // Dummydata voor use cases
@@ -290,81 +289,77 @@ const UseCaseDetailPage: React.FC = () => {
   
   if (!useCase) {
     return (
-      <Layout>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl font-bold mb-6">Case study niet gevonden</h1>
-          <p className="text-xl text-gray-400 mb-8">De case study die u zoekt bestaat niet of is verwijderd.</p>
-          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-            <Link href="/use-cases">Terug naar use cases</Link>
-          </Button>
-        </div>
-      </Layout>
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-4xl font-bold mb-6">Case study niet gevonden</h1>
+        <p className="text-xl text-gray-400 mb-8">De case study die u zoekt bestaat niet of is verwijderd.</p>
+        <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+          <Link href="/use-cases">Terug naar use cases</Link>
+        </Button>
+      </div>
     );
   }
 
   return (
-    <Layout>
-      <div className="container mx-auto px-4 py-16">
-        <div className="mb-8">
-          <Link href="/use-cases" className="inline-flex items-center text-blue-400 hover:text-blue-300">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Terug naar use cases
-          </Link>
+    <div className="container mx-auto px-4 py-16">
+      <div className="mb-8">
+        <Link href="/use-cases" className="inline-flex items-center text-blue-400 hover:text-blue-300">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Terug naar use cases
+        </Link>
+      </div>
+
+      <article className="max-w-4xl mx-auto">
+        <div className="mb-12">
+          <div className="text-sm text-purple-400 mb-2">{useCase.category}</div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{useCase.title}</h1>
+          <p className="text-xl text-gray-300 mb-8">{useCase.subtitle}</p>
         </div>
 
-        <article className="max-w-4xl mx-auto">
-          <div className="mb-12">
-            <div className="text-sm text-purple-400 mb-2">{useCase.category}</div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{useCase.title}</h1>
-            <p className="text-xl text-gray-300 mb-8">{useCase.subtitle}</p>
-          </div>
-
-          <div className="space-y-12">
-            <section>
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">De Uitdaging</h2>
-              <div 
-                className="prose prose-lg prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: useCase.challenge }}
-              />
-            </section>
-            
-            <section>
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-teal-500 text-transparent bg-clip-text">De Oplossing</h2>
-              <div 
-                className="prose prose-lg prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: useCase.solution }}
-              />
-            </section>
-            
-            <section>
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">De Resultaten</h2>
-              <div 
-                className="prose prose-lg prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: useCase.results }}
-              />
-            </section>
-            
-            <section>
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">Geleerde Lessen</h2>
-              <div 
-                className="prose prose-lg prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: useCase.lessons }}
-              />
-            </section>
-            
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
-              <blockquote className="text-xl italic text-gray-300 mb-4">"{useCase.testimonial.quote}"</blockquote>
-              <div className="flex items-center">
-                <div className="ml-4">
-                  <div className="font-semibold text-white">{useCase.testimonial.author}</div>
-                  <div className="text-gray-400 text-sm">{useCase.testimonial.position}</div>
-                </div>
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">De Uitdaging</h2>
+            <div 
+              className="prose prose-lg prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: useCase.challenge }}
+            />
+          </section>
+          
+          <section>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-teal-500 text-transparent bg-clip-text">De Oplossing</h2>
+            <div 
+              className="prose prose-lg prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: useCase.solution }}
+            />
+          </section>
+          
+          <section>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">De Resultaten</h2>
+            <div 
+              className="prose prose-lg prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: useCase.results }}
+            />
+          </section>
+          
+          <section>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">Geleerde Lessen</h2>
+            <div 
+              className="prose prose-lg prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: useCase.lessons }}
+            />
+          </section>
+          
+          <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
+            <blockquote className="text-xl italic text-gray-300 mb-4">"{useCase.testimonial.quote}"</blockquote>
+            <div className="flex items-center">
+              <div className="ml-4">
+                <div className="font-semibold text-white">{useCase.testimonial.author}</div>
+                <div className="text-gray-400 text-sm">{useCase.testimonial.position}</div>
               </div>
             </div>
           </div>
-        </article>
-      </div>
-    </Layout>
+        </div>
+      </article>
+    </div>
   );
 };
 
