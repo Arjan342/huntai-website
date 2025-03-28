@@ -43,7 +43,7 @@ const newsArticles = [
     date: '27 maart 2025',
     author: 'Thomas Janssen',
     category: 'Onderzoek',
-    image: '/images/news1.jpg'
+    image: '/images/news1.svg'
   },
   {
     id: '2',
@@ -86,7 +86,7 @@ const newsArticles = [
     date: '20 maart 2025',
     author: 'Lisa van der Meer',
     category: 'Trends',
-    image: '/images/news2.jpg'
+    image: '/images/news2.svg'
   },
   {
     id: '3',
@@ -150,7 +150,7 @@ const newsArticles = [
     date: '15 maart 2025',
     author: 'Mark de Vries',
     category: 'Case Study',
-    image: '/images/news3.jpg'
+    image: '/images/news3.svg'
   }
 ];
 
