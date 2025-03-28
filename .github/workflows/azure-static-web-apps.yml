@@ -31,9 +31,9 @@ jobs:
         
       - name: Build Frontend and API for Azure
         run: |
-          vite build
+          npx vite build
           mkdir -p dist/api
-          esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist/api
+          npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist/api
         
       - name: Build And Deploy
         id: builddeploy
