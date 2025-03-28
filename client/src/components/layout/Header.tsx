@@ -23,7 +23,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang }) => {
       
       {isOpen && (
         <div className="absolute right-0 mt-2 w-24 bg-gray-900 border border-gray-800 rounded-md shadow-lg z-50">
-          <Link href="/"
+          <Link 
+            href="/"
             className={`block px-4 py-2 text-sm ${
               currentLang === 'nl' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
             }`}
@@ -31,7 +32,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang }) => {
           >
             Nederlands
           </Link>
-          <Link href="/"
+          <Link 
+            href="/"
             className={`block px-4 py-2 text-sm ${
               currentLang === 'en' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
             }`}
@@ -80,13 +82,9 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                href={link.path} 
-                className={`text-gray-300 hover:text-white transition-colors ${
-                  location === link.path ? "text-white" : ""
-                }`}
-              >
+              <Link key={link.path} href={link.path} className={`text-gray-300 hover:text-white transition-colors ${
+                location === link.path ? "text-white" : ""
+              }`}>
                 {link.name}
               </Link>
             ))}
@@ -95,11 +93,9 @@ const Header: React.FC = () => {
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             <LanguageSwitcher currentLang="nl" />
-            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              <Link href="/contact">
-                Request Demo
-              </Link>
-            </Button>
+            <Link href="/contact" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-md inline-flex items-center justify-center">
+              Request Demo
+            </Link>
             
             {/* Mobile menu button */}
             <button
@@ -133,11 +129,13 @@ const Header: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Request Demo
-              </Link>
-            </Button>
+            <Link 
+              href="/contact" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-md w-full text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Request Demo
+            </Link>
           </div>
         </div>
       )}
