@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
+// Afbeeldingen importeren
+import { images } from '../assets/index';
+
 // Layout - niet meer nodig, we gebruiken het algemene Layout component in App.tsx
 
 // Gegevens van use cases
@@ -17,7 +20,7 @@ const useCases = [
     description: 'Een toonaangevende bank versterkt haar digitale weerbaarheid en reduceert succesvolle phishing-aanvallen met 85% dankzij AI-gestuurde beveiligingsoplossingen.',
     category: 'Financiële Sector',
     results: ['85% minder phishing-aanvallen', '70% snellere detectie', '60% snellere reactietijd'],
-    image: '/images/financial-institution.svg'
+    image: images['financial-institution']
   },
   {
     id: 'healthcare-provider',
@@ -25,7 +28,7 @@ const useCases = [
     description: 'Een grote Nederlandse zorginstelling implementeert geavanceerde AI-beveiligingsmaatregelen om gevoelige patiëntgegevens te beschermen en te voldoen aan strikte regelgeving.',
     category: 'Gezondheidszorg',
     results: ['90% snellere detectie', '100% compliance', 'Zero downtime'],
-    image: '/images/healthcare-provider.svg'
+    image: images['healthcare-provider']
   },
   {
     id: 'government-agency',
@@ -33,7 +36,7 @@ const useCases = [
     description: 'Een Nederlandse overheidsinstantie gebruikt AI-pentesting en monitoring om geavanceerde aanvallen te detecteren en kritieke infrastructuur te beschermen.',
     category: 'Overheid',
     results: ['95% vermindering kwetsbaarheden', '24/7 realtime monitoring', 'Verbeterde weerbaarheid'],
-    image: '/images/government-agency.svg'
+    image: images['government-agency']
   },
   {
     id: 'manufacturing-company',
@@ -41,7 +44,7 @@ const useCases = [
     description: 'Een groot productiebedrijf implementeert segmentatie en AI-monitoring om de convergentie van operationele technologie (OT) en IT-netwerken veilig te faciliteren.',
     category: 'Industrie',
     results: ['80% betere zichtbaarheid', 'Geïsoleerde kritieke systemen', 'Veilige digitale transformatie'],
-    image: '/images/manufacturing-company.svg'
+    image: images['manufacturing-company']
   }
 ];
 
