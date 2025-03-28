@@ -5,6 +5,50 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+interface LanguageSwitcherProps {
+  currentLang: string;
+}
+
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="relative">
+      <button 
+        className="flex items-center gap-1 text-gray-300 hover:text-white"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="uppercase">{currentLang}</span>
+      </button>
+      
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-24 bg-gray-900 border border-gray-800 rounded-md shadow-lg z-50">
+          <Link href="/">
+            <a 
+              className={`block px-4 py-2 text-sm ${
+                currentLang === 'nl' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              Nederlands
+            </a>
+          </Link>
+          <Link href="/">
+            <a 
+              className={`block px-4 py-2 text-sm ${
+                currentLang === 'en' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              English
+            </a>
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Header: React.FC = () => {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,41 +73,39 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed w-full bg-secondary/80 backdrop-blur-sm z-50">
-      <div className="max-w-[1440px] mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed w-full bg-black/90 backdrop-blur-sm border-b border-gray-800 z-50">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-8">
-            <Link href="/">
-              <a className="text-xl font-bold text-white">HuntAI</a>
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:block">
-              <ul className="flex space-x-8">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link href={link.path}>
-                      <a className={`text-white hover:text-accent transition ${
-                        location === link.path ? "text-accent" : ""
-                      }`}>{link.name}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
+          <Link href="/">
+            <a className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text">
+              HuntAI
+            </a>
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            {navLinks.map((link) => (
+              <Link key={link.path} href={link.path}>
+                <a className={`text-gray-300 hover:text-white transition-colors ${
+                  location === link.path ? "text-white" : ""
+                }`}>{link.name}</a>
+              </Link>
+            ))}
+          </nav>
           
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
-            <button className="text-white hover:text-accent transition">NL</button>
-            <Button className="bg-primary text-white hover:bg-primary/90 transition">
-              Request Demo
+            <LanguageSwitcher currentLang="nl" />
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+              <Link href="/contact">
+                <a>Request Demo</a>
+              </Link>
             </Button>
             
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white hover:text-accent"
+              className="md:hidden text-gray-300"
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
             >
@@ -78,22 +120,29 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile navigation */}
-      <div className={`md:hidden bg-secondary ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-6 py-4 space-y-3">
-          {mobileNavLinks.map((link) => (
-            <Link key={link.path} href={link.path}>
-              <a 
-                className={`block text-white hover:text-accent transition ${
-                  location === link.path ? "text-accent" : ""
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            </Link>
-          ))}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-gray-900 border-t border-gray-800">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            {mobileNavLinks.map((link) => (
+              <Link key={link.path} href={link.path}>
+                <a 
+                  className={`text-gray-300 hover:text-white transition-colors py-2 ${
+                    location === link.path ? "text-white" : ""
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              </Link>
+            ))}
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <a>Request Demo</a>
+              </Link>
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
