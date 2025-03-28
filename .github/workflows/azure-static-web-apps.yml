@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:  # Handmatige trigger toegevoegd
 
 jobs:
   build_and_deploy_job:
@@ -29,25 +29,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
         
-      - name: Pre-Build Steps
-        run: |
-          # Ensure 404.html is available for SPA routing
-          mkdir -p dist/public
-          [[ -f client/src/404.html ]] && cp client/src/404.html dist/public/404.html || echo "404.html will be created during build"
-          
-          # Create staticwebapp.config.json if it doesn't exist
-          if [[ ! -f staticwebapp.config.json ]]; then
-            echo '{
-              "navigationFallback": {
-                "rewrite": "/index.html",
-                "exclude": ["/images/*.{png,jpg,gif}", "/css/*", "/js/*"]
-              },
-              "routes": [
-                { "route": "/*", "serve": "/index.html", "statusCode": 200 }
-              ]
-            }' > staticwebapp.config.json
-            echo "Created staticwebapp.config.json for SPA routing"
-          fi
+      - name: Build Frontend Only
+        run: npm run build -- --outDir=./dist/static
         
       - name: Build And Deploy
         id: builddeploy
@@ -60,10 +43,9 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "dist/public" # Built app content directory - optional
-          app_build_command: "npm run build" # Custom build command
-          skip_app_build: false
-          skip_api_build: true
+          output_location: "dist/static" # Built app content directory - optional
+          skip_app_build: true # Skip the build step since we've already built the app
+          production_branch: "main"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
