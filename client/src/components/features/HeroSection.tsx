@@ -29,12 +29,12 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-md text-base h-auto">
               <Link href="/diensten">
-                <a>Onze Diensten</a>
+                Onze Diensten
               </Link>
             </Button>
             <Button asChild variant="outline" className="border border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-md text-base h-auto">
               <Link href="/contact">
-                <a>Contact Opnemen</a>
+                Contact Opnemen
               </Link>
             </Button>
           </div>
