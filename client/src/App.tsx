@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/home";
+import UseCasesPage from "./pages/use-cases";
+import UseCaseDetailPage from "./pages/use-case-detail";
 
 function Router() {
   return (
@@ -13,7 +15,8 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/diensten" component={() => <div className="py-32 text-center">Diensten Pagina</div>} />
         <Route path="/nieuws" component={() => <div className="py-32 text-center">Nieuws Pagina</div>} />
-        <Route path="/use-cases" component={() => <div className="py-32 text-center">Use Cases Pagina</div>} />
+        <Route path="/use-cases" component={UseCasesPage} />
+        <Route path="/use-case/:id" component={UseCaseDetailPage} />
         <Route path="/over-ons" component={() => <div className="py-32 text-center">Over Ons Pagina</div>} />
         <Route path="/onze-diensten" component={() => <div className="py-32 text-center">Onze Diensten Pagina</div>} />
         <Route path="/kwetsbaarheidsanalyse" component={() => <div className="py-32 text-center">Kwetsbaarheidsanalyse Pagina</div>} />
