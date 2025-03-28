@@ -66,10 +66,8 @@ const NewsGrid: React.FC = () => {
                 </div>
                 <h3 className="text-lg font-semibold mb-3 text-white line-clamp-2">{item.title}</h3>
                 <p className="text-gray-400 text-sm mb-4 line-clamp-3">{item.description}</p>
-                <Link href={item.link}>
-                  <a className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium">
-                    Lees meer <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
+                <Link href={item.link} className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium">
+                  Lees meer <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             </div>
@@ -82,7 +80,7 @@ const NewsGrid: React.FC = () => {
             className="border border-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-md text-base h-auto"
           >
             <Link href="/nieuws">
-              <a>Bekijk al het nieuws</a>
+              Bekijk al het nieuws
             </Link>
           </Button>
         </div>
