@@ -58,17 +58,21 @@ const ServicesSection: React.FC = () => {
               {service.icon}
               <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
               <p className="text-gray-400 mb-6 text-sm">{service.description}</p>
-              <Link href={service.link} className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium">
-                Meer informatie <ArrowRight className="w-4 h-4 ml-2" />
+              <Link href={service.link}>
+                <a className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium">
+                  Meer informatie <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
               </Link>
             </div>
           ))}
         </div>
         
         <div className="text-center">
-          <Link href="/contact" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-md transition text-base h-auto inline-flex items-center justify-center">
-            Bekijk al onze diensten
-          </Link>
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-md transition text-base h-auto">
+            <Link href="/contact">
+              <a>Bekijk al onze diensten</a>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

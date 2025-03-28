@@ -27,12 +27,16 @@ const HeroSection: React.FC = () => {
             van organisaties door de inzet van geavanceerde AI-technologie.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/diensten" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-md text-base h-auto inline-flex items-center justify-center">
-              Onze Diensten
-            </Link>
-            <Link href="/contact" className="border border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-md text-base h-auto inline-flex items-center justify-center">
-              Contact Opnemen
-            </Link>
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-md text-base h-auto">
+              <Link href="/diensten">
+                <a>Onze Diensten</a>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="border border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-md text-base h-auto">
+              <Link href="/contact">
+                <a>Contact Opnemen</a>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
