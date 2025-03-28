@@ -23,25 +23,21 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang }) => {
       
       {isOpen && (
         <div className="absolute right-0 mt-2 w-24 bg-gray-900 border border-gray-800 rounded-md shadow-lg z-50">
-          <Link href="/">
-            <a 
-              className={`block px-4 py-2 text-sm ${
-                currentLang === 'nl' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              Nederlands
-            </a>
+          <Link href="/"
+            className={`block px-4 py-2 text-sm ${
+              currentLang === 'nl' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
+            Nederlands
           </Link>
-          <Link href="/">
-            <a 
-              className={`block px-4 py-2 text-sm ${
-                currentLang === 'en' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              English
-            </a>
+          <Link href="/"
+            className={`block px-4 py-2 text-sm ${
+              currentLang === 'en' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
+            English
           </Link>
         </div>
       )}
@@ -77,19 +73,21 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <a className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text">
-              HuntAI
-            </a>
+          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 text-transparent bg-clip-text">
+            HuntAI
           </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <Link key={link.path} href={link.path}>
-                <a className={`text-gray-300 hover:text-white transition-colors ${
+              <Link 
+                key={link.path} 
+                href={link.path} 
+                className={`text-gray-300 hover:text-white transition-colors ${
                   location === link.path ? "text-white" : ""
-                }`}>{link.name}</a>
+                }`}
+              >
+                {link.name}
               </Link>
             ))}
           </nav>
@@ -99,7 +97,7 @@ const Header: React.FC = () => {
             <LanguageSwitcher currentLang="nl" />
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
               <Link href="/contact">
-                <a>Request Demo</a>
+                Request Demo
               </Link>
             </Button>
             
@@ -124,20 +122,20 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-gray-900 border-t border-gray-800">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {mobileNavLinks.map((link) => (
-              <Link key={link.path} href={link.path}>
-                <a 
-                  className={`text-gray-300 hover:text-white transition-colors py-2 ${
-                    location === link.path ? "text-white" : ""
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
+              <Link 
+                key={link.path} 
+                href={link.path}
+                className={`text-gray-300 hover:text-white transition-colors py-2 ${
+                  location === link.path ? "text-white" : ""
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
               </Link>
             ))}
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <a>Request Demo</a>
+                Request Demo
               </Link>
             </Button>
           </div>
