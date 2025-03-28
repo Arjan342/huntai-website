@@ -8,24 +8,46 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
       - name: Install Dependencies
         run: npm ci
+        
+      - name: Pre-Build Steps
+        run: |
+          # Ensure 404.html is available for SPA routing
+          mkdir -p dist/public
+          [[ -f client/src/404.html ]] && cp client/src/404.html dist/public/404.html || echo "404.html will be created during build"
+          
+          # Create staticwebapp.config.json if it doesn't exist
+          if [[ ! -f staticwebapp.config.json ]]; then
+            echo '{
+              "navigationFallback": {
+                "rewrite": "/index.html",
+                "exclude": ["/images/*.{png,jpg,gif}", "/css/*", "/js/*"]
+              },
+              "routes": [
+                { "route": "/*", "serve": "/index.html", "statusCode": 200 }
+              ]
+            }' > staticwebapp.config.json
+            echo "Created staticwebapp.config.json for SPA routing"
+          fi
         
       - name: Build And Deploy
         id: builddeploy
@@ -40,6 +62,8 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "dist/public" # Built app content directory - optional
           app_build_command: "npm run build" # Custom build command
+          skip_app_build: false
+          skip_api_build: true
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
