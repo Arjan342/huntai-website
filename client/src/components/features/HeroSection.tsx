@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
             </Button>
             <Button asChild variant="outline" className="border border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-md text-base h-auto">
               <Link href="/contact">
-                Contact Opnemen
+                Gratis website scan
               </Link>
             </Button>
           </div>
