@@ -15,6 +15,7 @@ import DienstenPage from "./pages/diensten";
 import ServiceDetailPage from "./pages/service-detail";
 import AutomatischeAIPentestenPage from "./pages/automatische-ai-pentesten";
 import KwetsbaarheidsanalysePage from "./pages/kwetsbaarheidsanalyse";
+import WebsiteScanPage from "./pages/website-scan";
 
 function Router() {
   return (
@@ -32,6 +33,7 @@ function Router() {
         <Route path="/onze-diensten" component={DienstenPage} />
         <Route path="/kwetsbaarheidsanalyse" component={KwetsbaarheidsanalysePage} />
         <Route path="/automatische-ai-pentesten" component={AutomatischeAIPentestenPage} />
+        <Route path="/website-scan" component={WebsiteScanPage} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

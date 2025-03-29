@@ -59,6 +59,11 @@ const Header: React.FC = () => {
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             <LanguageSwitcher currentLang="nl" />
+            <Button asChild variant="outline" className="hidden sm:flex text-white border-gray-600 hover:bg-gray-800">
+              <Link to="/website-scan">
+                Gratis website scan
+              </Link>
+            </Button>
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
               <Link to="/login">
                 Login
@@ -97,6 +102,14 @@ const Header: React.FC = () => {
                 {link.name}
               </Link>
             ))}
+            <Button asChild variant="outline" className="text-white border-gray-600 hover:bg-gray-800 w-full">
+              <Link 
+                to="/website-scan" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Gratis website scan
+              </Link>
+            </Button>
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
               <Link 
                 to="/login" 

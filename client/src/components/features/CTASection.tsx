@@ -27,7 +27,7 @@ const CTASection: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-md transition text-base h-auto group">
-              <Link href="/contact" className="flex items-center">
+              <Link href="/website-scan" className="flex items-center">
                 Gratis website scan
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
