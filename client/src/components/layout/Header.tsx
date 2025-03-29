@@ -60,8 +60,8 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <LanguageSwitcher currentLang="nl" />
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              <Link to="/contact">
-                Request Demo
+              <Link to="/login">
+                Login
               </Link>
             </Button>
             
@@ -99,10 +99,10 @@ const Header: React.FC = () => {
             ))}
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full">
               <Link 
-                to="/contact" 
+                to="/login" 
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Request Demo
+                Login
               </Link>
             </Button>
           </div>

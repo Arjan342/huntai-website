@@ -10,6 +10,7 @@ import UseCaseDetailPage from "./pages/use-case-detail";
 import NewsPage from "./pages/news";
 import NewsDetailPage from "./pages/news-detail";
 import AboutPage from "./pages/about";
+import LoginPage from "./pages/login";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/use-cases" component={UseCasesPage} />
         <Route path="/use-case/:id" component={UseCaseDetailPage} />
         <Route path="/over-ons" component={AboutPage} />
+        <Route path="/login" component={LoginPage} />
         <Route path="/onze-diensten" component={() => <div className="py-32 text-center">Onze Diensten Pagina</div>} />
         <Route path="/kwetsbaarheidsanalyse" component={() => <div className="py-32 text-center">Kwetsbaarheidsanalyse Pagina</div>} />
         <Route path="/automatische-ai-pentesten" component={() => <div className="py-32 text-center">Automatische AI Pentesten Pagina</div>} />
