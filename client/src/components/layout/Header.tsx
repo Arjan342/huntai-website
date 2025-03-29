@@ -4,68 +4,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-interface LanguageSwitcherProps {
-  currentLang: string;
-}
-
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLang }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  
-  return (
-    <div className="relative">
-      <button 
-        className="flex items-center gap-1 text-gray-300 hover:text-white"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className="uppercase">{currentLang}</span>
-      </button>
-      
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-24 bg-gray-900 border border-gray-800 rounded-md shadow-lg z-50">
-          <div
-            role="button"
-            tabIndex={0}
-            className={`block px-4 py-2 text-sm cursor-pointer ${
-              currentLang === 'nl' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
-            }`}
-            onClick={() => {
-              window.location.href = '/';
-              setIsOpen(false);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                window.location.href = '/';
-                setIsOpen(false);
-              }
-            }}
-          >
-            Nederlands
-          </div>
-          <div
-            role="button"
-            tabIndex={0}
-            className={`block px-4 py-2 text-sm cursor-pointer ${
-              currentLang === 'en' ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800'
-            }`}
-            onClick={() => {
-              window.location.href = '/';
-              setIsOpen(false);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                window.location.href = '/';
-                setIsOpen(false);
-              }
-            }}
-          >
-            English
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header: React.FC = () => {
   const [location] = useLocation();

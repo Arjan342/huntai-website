@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 // UI Components
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { images } from '@/assets';
 
 // Dummydata voor nieuwsartikelen
 const newsArticles = [
@@ -43,7 +44,7 @@ const newsArticles = [
     date: '27 maart 2025',
     author: 'Thomas Janssen',
     category: 'Onderzoek',
-    image: '/images/news1.svg'
+    image: images.news1
   },
   {
     id: '2',
@@ -86,7 +87,7 @@ const newsArticles = [
     date: '20 maart 2025',
     author: 'Lisa van der Meer',
     category: 'Trends',
-    image: '/images/news2.svg'
+    image: images.news2
   },
   {
     id: '3',
@@ -150,7 +151,7 @@ const newsArticles = [
     date: '15 maart 2025',
     author: 'Mark de Vries',
     category: 'Case Study',
-    image: '/images/news3.svg'
+    image: images.news3
   }
 ];
 
