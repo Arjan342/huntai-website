@@ -4,34 +4,35 @@ import React from "react";
 import { Link } from "wouter";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { images } from "@/assets";
 
 const newsItems = [
   {
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450&q=80",
+    image: images.news1,
     date: "24 maart 2025",
     tag: "Onderzoek",
     title: "AI-pentesten ontdekken 45% meer kwetsbaarheden dan traditionele methoden",
     description:
       "Recente benchmarks tonen aan dat AI-gestuurde penetratietesten aanzienlijk effectiever zijn in het identificeren van verborgen beveiligingsrisico's.",
-    link: "/nieuws/ai-pentesten",
+    link: "/news/1",
   },
   {
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450&q=80",
+    image: images.news2,
     date: "18 maart 2025",
     tag: "Technologie",
     title: "De toekomst van cybersecurity: Hoe AI het beveiligingslandschap transformeert",
     description:
       "Een diepgaande analyse van de nieuwste trends in AI-gestuurde beveiligingstechnologieën en hun impact op de sector.",
-    link: "/nieuws/toekomst-cybersecurity",
+    link: "/news/2",
   },
   {
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450&q=80",
+    image: images.news3,
     date: "10 maart 2025",
     tag: "Case Study",
     title: "Hoe een grote financiële instelling haar beveiliging verbeterde met HuntAI",
     description:
       "Een praktijkvoorbeeld waarbij onze AI-beveiligingsoplossingen hielpen bij het detecteren en elimineren van kritieke kwetsbaarheden.",
-    link: "/nieuws/case-study-financiele-instelling",
+    link: "/news/3",
   },
 ];
 
@@ -79,7 +80,7 @@ const NewsGrid: React.FC = () => {
             variant="outline" 
             className="border border-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-md text-base h-auto"
           >
-            <Link href="/nieuws">
+            <Link href="/news">
               Bekijk al het nieuws
             </Link>
           </Button>

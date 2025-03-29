@@ -11,27 +11,27 @@ import { images } from '@/assets';
 const newsArticles = [
   {
     id: '1',
-    title: 'AI-gestuurde pentesten ontdekken 40% meer kwetsbaarheden',
-    excerpt: 'Uit recent onderzoek blijkt dat AI-gestuurde pentesten significant meer kwetsbaarheden identificeren dan traditionele methoden.',
-    date: '27 maart 2025',
+    title: 'AI-pentesten ontdekken 45% meer kwetsbaarheden dan traditionele methoden',
+    excerpt: 'Recente benchmarks tonen aan dat AI-gestuurde penetratietesten aanzienlijk effectiever zijn in het identificeren van verborgen beveiligingsrisico\'s.',
+    date: '24 maart 2025',
     author: 'Thomas Janssen',
     category: 'Onderzoek',
     image: images.news1
   },
   {
     id: '2',
-    title: 'De toekomst van cybersecurity: hoe AI het landschap verandert',
-    excerpt: 'Kunstmatige intelligentie transformeert de cybersecurity-industrie door nieuwe verdedigingsmechanismen mogelijk te maken.',
-    date: '20 maart 2025',
+    title: 'De toekomst van cybersecurity: Hoe AI het beveiligingslandschap transformeert',
+    excerpt: 'Een diepgaande analyse van de nieuwste trends in AI-gestuurde beveiligingstechnologieën en hun impact op de sector.',
+    date: '18 maart 2025',
     author: 'Lisa van der Meer',
-    category: 'Trends',
+    category: 'Technologie',
     image: images.news2
   },
   {
     id: '3',
-    title: 'Case study: Hoe een financiële instelling haar beveiliging verbeterde met AI',
-    excerpt: 'Een toonaangevende financiële instelling implementeerde AI-beveiligingsoplossingen en zag een drastische vermindering van incidenten.',
-    date: '15 maart 2025',
+    title: 'Hoe een grote financiële instelling haar beveiliging verbeterde met HuntAI',
+    excerpt: 'Een praktijkvoorbeeld waarbij onze AI-beveiligingsoplossingen hielpen bij het detecteren en elimineren van kritieke kwetsbaarheden.',
+    date: '10 maart 2025',
     author: 'Mark de Vries',
     category: 'Case Study',
     image: images.news3

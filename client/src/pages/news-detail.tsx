@@ -11,11 +11,11 @@ import { images } from '@/assets';
 const newsArticles = [
   {
     id: '1',
-    title: 'AI-gestuurde pentesten ontdekken 40% meer kwetsbaarheden',
+    title: 'AI-pentesten ontdekken 45% meer kwetsbaarheden dan traditionele methoden',
     content: `
       <p>Uit recent onderzoek blijkt dat AI-gestuurde pentesten significant meer kwetsbaarheden identificeren dan traditionele methoden. Het onderzoek, uitgevoerd door een onafhankelijk cybersecurity instituut, vergeleek de resultaten van conventionele pentesten met die van AI-gestuurde alternatieven bij meer dan 100 organisaties.</p>
       
-      <p>De resultaten waren opmerkelijk: AI-gestuurde pentesten ontdekten gemiddeld 40% meer kwetsbaarheden, waaronder subtiele beveiligingsproblemen die door menselijke testers vaak over het hoofd worden gezien. Bovendien waren de AI-systemen in staat om deze tests uit te voeren in een fractie van de tijd die menselijke testers nodig hadden.</p>
+      <p>De resultaten waren opmerkelijk: AI-gestuurde pentesten ontdekten gemiddeld 45% meer kwetsbaarheden, waaronder subtiele beveiligingsproblemen die door menselijke testers vaak over het hoofd worden gezien. Bovendien waren de AI-systemen in staat om deze tests uit te voeren in een fractie van de tijd die menselijke testers nodig hadden.</p>
       
       <h3>Waarom AI beter presteert</h3>
       
@@ -40,15 +40,15 @@ const newsArticles = [
       
       <p>Voor organisaties die hun cybersecurity willen versterken, is het duidelijk dat AI-gestuurde pentesten een essentieel onderdeel van hun beveiligingsstrategie moeten worden.</p>
     `,
-    excerpt: 'Uit recent onderzoek blijkt dat AI-gestuurde pentesten significant meer kwetsbaarheden identificeren dan traditionele methoden.',
-    date: '27 maart 2025',
+    excerpt: 'Recente benchmarks tonen aan dat AI-gestuurde penetratietesten aanzienlijk effectiever zijn in het identificeren van verborgen beveiligingsrisico\'s.',
+    date: '24 maart 2025',
     author: 'Thomas Janssen',
     category: 'Onderzoek',
     image: images.news1
   },
   {
     id: '2',
-    title: 'De toekomst van cybersecurity: hoe AI het landschap verandert',
+    title: 'De toekomst van cybersecurity: Hoe AI het beveiligingslandschap transformeert',
     content: `
       <p>Kunstmatige intelligentie transformeert de cybersecurity-industrie door nieuwe verdedigingsmechanismen mogelijk te maken die voorheen ondenkbaar waren. Deze technologische revolutie verandert fundamenteel hoe organisaties zich beschermen tegen digitale dreigingen.</p>
       
@@ -83,15 +83,15 @@ const newsArticles = [
       
       <p>De toekomst van cybersecurity is hier, en AI staat centraal in deze nieuwe realiteit.</p>
     `,
-    excerpt: 'Kunstmatige intelligentie transformeert de cybersecurity-industrie door nieuwe verdedigingsmechanismen mogelijk te maken.',
-    date: '20 maart 2025',
+    excerpt: 'Een diepgaande analyse van de nieuwste trends in AI-gestuurde beveiligingstechnologieën en hun impact op de sector.',
+    date: '18 maart 2025',
     author: 'Lisa van der Meer',
-    category: 'Trends',
+    category: 'Technologie',
     image: images.news2
   },
   {
     id: '3',
-    title: 'Case study: Hoe een financiële instelling haar beveiliging verbeterde met AI',
+    title: 'Hoe een grote financiële instelling haar beveiliging verbeterde met HuntAI',
     content: `
       <p>Een toonaangevende financiële instelling in Nederland heeft onlangs een opmerkelijke transformatie van haar cybersecurity-infrastructuur doorgemaakt door de implementatie van AI-gestuurde beveiligingsoplossingen. Deze case study belicht de uitdagingen, de geïmplementeerde oplossingen en de indrukwekkende resultaten die werden bereikt.</p>
       
@@ -147,8 +147,8 @@ const newsArticles = [
       
       <p>Deze case study illustreert hoe AI-gestuurde beveiligingsoplossingen, wanneer correct geïmplementeerd, een transformatief effect kunnen hebben op de cybersecurity-posture van financiële instellingen en andere organisaties die met gevoelige gegevens werken.</p>
     `,
-    excerpt: 'Een toonaangevende financiële instelling implementeerde AI-beveiligingsoplossingen en zag een drastische vermindering van incidenten.',
-    date: '15 maart 2025',
+    excerpt: 'Een praktijkvoorbeeld waarbij onze AI-beveiligingsoplossingen hielpen bij het detecteren en elimineren van kritieke kwetsbaarheden.',
+    date: '10 maart 2025',
     author: 'Mark de Vries',
     category: 'Case Study',
     image: images.news3
