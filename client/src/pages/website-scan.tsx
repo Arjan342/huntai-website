@@ -57,38 +57,9 @@ const WebsiteScanPage: React.FC = () => {
       const data = await response.json();
       setScanResults(data);
     } catch (err) {
-      // If API is not available, show mock results for demo purposes
       console.error('Error fetching scan results:', err);
       setError('Het scannen kon niet worden voltooid. Probeer het later nog eens of neem contact op met ons team.');
-      
-      // Show mock results for demonstration
-      setScanResults({
-        url: url,
-        scanDate: new Date().toISOString(),
-        securityScore: 72,
-        headers: {
-          'Content-Security-Policy': false,
-          'X-Content-Type-Options': true,
-          'X-Frame-Options': true,
-          'Strict-Transport-Security': false,
-          'X-XSS-Protection': true
-        },
-        ssl: {
-          valid: true,
-          grade: 'B',
-          expiresIn: 180
-        },
-        outdatedLibraries: [
-          { name: 'jQuery', version: '1.11.3', latestVersion: '3.6.0', severity: 'high' },
-          { name: 'Bootstrap', version: '4.3.1', latestVersion: '5.2.3', severity: 'medium' }
-        ],
-        recommendations: [
-          'Implementeer een Content Security Policy (CSP)',
-          'Configureer HTTP Strict Transport Security (HSTS)',
-          'Update jQuery naar de nieuwste versie',
-          'Update Bootstrap naar de nieuwste versie'
-        ]
-      });
+      setIsScanning(false);
     } finally {
       setIsScanning(false);
     }

@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
 // Helper function to simulate a website scan
-function simulateWebsiteScan(url: string) {
+export function simulateWebsiteScan(url: string) {
   const randomScore = Math.floor(Math.random() * 30) + 60; // Score between 60-90
   const hasCSP = Math.random() > 0.5;
   const hasXContentType = Math.random() > 0.7;
