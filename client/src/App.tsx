@@ -11,22 +11,27 @@ import NewsPage from "./pages/news";
 import NewsDetailPage from "./pages/news-detail";
 import AboutPage from "./pages/about";
 import LoginPage from "./pages/login";
+import DienstenPage from "./pages/diensten";
+import ServiceDetailPage from "./pages/service-detail";
+import AutomatischeAIPentestenPage from "./pages/automatische-ai-pentesten";
+import KwetsbaarheidsanalysePage from "./pages/kwetsbaarheidsanalyse";
 
 function Router() {
   return (
     <Layout>
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/diensten" component={() => <div className="py-32 text-center">Diensten Pagina</div>} />
+        <Route path="/diensten" component={DienstenPage} />
+        <Route path="/diensten/:id" component={ServiceDetailPage} />
         <Route path="/news" component={NewsPage} />
         <Route path="/news/:id" component={NewsDetailPage} />
         <Route path="/use-cases" component={UseCasesPage} />
         <Route path="/use-case/:id" component={UseCaseDetailPage} />
         <Route path="/over-ons" component={AboutPage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/onze-diensten" component={() => <div className="py-32 text-center">Onze Diensten Pagina</div>} />
-        <Route path="/kwetsbaarheidsanalyse" component={() => <div className="py-32 text-center">Kwetsbaarheidsanalyse Pagina</div>} />
-        <Route path="/automatische-ai-pentesten" component={() => <div className="py-32 text-center">Automatische AI Pentesten Pagina</div>} />
+        <Route path="/onze-diensten" component={DienstenPage} />
+        <Route path="/kwetsbaarheidsanalyse" component={KwetsbaarheidsanalysePage} />
+        <Route path="/automatische-ai-pentesten" component={AutomatischeAIPentestenPage} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
